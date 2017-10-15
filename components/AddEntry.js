@@ -24,7 +24,7 @@ export default class AddEntry extends Component {
       }
     })
   }
-  descrement = (metric) => {
+  decrement = (metric) => {
     this.setState((state) => {
       const count = state[metric] - getMetricMetaInfo(metric).step
 
@@ -55,7 +55,7 @@ export default class AddEntry extends Component {
                 ? <UdaciSlider
                     value={value}
                     onChange={(value) => this.slide(key, value)}
-                  {...rest}
+                    {...rest}
                   />
                 : <UdaciSteppers
                     value={value}
@@ -63,8 +63,8 @@ export default class AddEntry extends Component {
                     onDecrement={() => this.decrement(key)}
                     {...rest}
                   />}
-              </View>
-            )
+            </View>
+          )
         })}
       </View>
     )
