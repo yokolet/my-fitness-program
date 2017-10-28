@@ -4,7 +4,14 @@ import {
   FontAwesome,
   MaterialIcons,
   MaterialCommunityIcons } from '@expo/vector-icons'
-import { white, black } from './colors'
+import { red, orange, blue, lightPurp, pink, white, black } from './colors'
+
+
+export function getDailyReminderValue() {
+  return {
+    today: "👋 Don't forget to log your data today!"
+  }
+}
 
 export function getMetricMetaInfo (metric) {
   const info = {
@@ -145,10 +152,4 @@ export function timeToString (time = Date.now()) {
   const date = new Date(time)
   const todayUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
   return todayUTC.toISOString().split('T')[0]
-}
-
-export function getDailyReminderValue() {
-  return {
-    today: "👋 Don't forget to log your data today!"
-  }
 }
