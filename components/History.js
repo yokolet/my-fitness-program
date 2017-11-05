@@ -8,7 +8,7 @@ import UdaciFitnessCalendar from 'udacifitness-calendar'
 import { white } from '../utils/colors'
 import DateHeader from './DateHeader'
 import MetricCard from './MetricCard'
-import { AppLoading } from 'expo'
+import { AppLoading} from 'expo'
 
 class History extends Component {
   state = {
@@ -38,9 +38,12 @@ class History extends Component {
             </Text>
           </View>
         : <TouchableOpacity
-            onPress={() => console.log('Pressed!')}
+            onPress={() => this.props.navigation.navigate(
+              'EntryDetail',
+              { entryId: key }
+            )}
           >
-              <MetricCard date={formattedDate} metrics={metrics}/>
+            <MetricCard date={formattedDate} metrics={metrics} />
           </TouchableOpacity>}
     </View>
   )
@@ -49,7 +52,7 @@ class History extends Component {
       <View style={styles.item}>
         <DateHeader date={formattedDate}/>
         <Text style={styles.noDataText}>
-          No data logged on this day.
+          You didn't log any data on this day.
         </Text>
       </View>
     )
@@ -85,16 +88,17 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowColor: 'rgba(0, 0, 0, 0.24)',
     shadowOffset: {
-      wdith: 0,
-      height: 3,
+      width: 0,
+      height: 3
     },
   },
   noDataText: {
     fontSize: 20,
     paddingTop: 20,
-    paddingBottom: 20,
+    paddingBottom: 20
   }
 })
+
 
 function mapStateToProps (entries) {
   return {
